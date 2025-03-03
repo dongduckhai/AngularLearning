@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, output, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { InvestmentInput } from '../type/investment.type';
 
 @Component({
   selector: 'app-user-input',
@@ -15,7 +16,9 @@ export class UserInputComponent {
     expectedReturn: 0,
     duration: 0,
   };
-  onSubmit() {
-    console.log(this.form);
+  @Output() onSubmit = new EventEmitter<InvestmentInput>();
+
+  handleSubmit() {
+    this.onSubmit.emit(this.form);
   }
 }

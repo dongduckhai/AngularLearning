@@ -1,2 +1,3 @@
 <app-header />
-<app-user-input />
+<app-user-input (onSubmit)="onSubmit($event)" />
+<app-investment-results [dataTable]="result()" />
